@@ -120,3 +120,29 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+
+
+// 1- add package add flutter_launcher_icons in pubspace.yaml
+
+// icon app logo 
+// 2- app ios:
+//     add image icons in assets say it icon-launcher.png
+
+// 3- app android : 
+//     go to web page called romannurik.github.io  
+//     download icon app
+//     add icon in assets say play-store-icon-launcher.png
+
+
+// write in flutter pubspec.yaml:
+// flutter_icons:
+//   android: true
+//   ios: true
+//   image_path: "assets/icons/icon-launcher.png"
+//   adaptive_icon_background: "#ffffff"
+//   adaptive_icon_foreground: "assets/icons/play-store-icon-launcher.png"
+
+// final run this 
+// flutter pub get  
+// flutter pub run flutter_launcher_icons
