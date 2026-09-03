@@ -2,11 +2,13 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:tasky_app/core/constants/app_localization.dart';
 import 'package:tasky_app/core/constants/locale_keys.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
-
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(
     EasyLocalization(
       supportedLocales: const [
@@ -19,8 +21,9 @@ void main() async{
       saveLocale: true,
       child: const MyApp(),
     ),
-);
+  );
 }
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -32,9 +35,11 @@ class MyApp extends StatelessWidget {
       locale: context.locale,
       title: LocaleKeys.flutter_demo.tr(),
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple), // تصحيح هنا
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.deepPurple,
+        ), // تصحيح هنا
       ),
-      home: MyHomePage(title:LocaleKeys.home_page_title.tr() ),
+      home: MyHomePage(title: LocaleKeys.home_page_title.tr()),
     );
   }
 }
